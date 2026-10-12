@@ -12,7 +12,20 @@
  */
 
 int main(int argc, char *argv[]) {
-    (void)argc; (void)argv;
-    /* TODO */
+    if (argc < 2) {
+        printf("0\n");
+        return 0;
+    }
+    char *referencia = argv[1];
+    int iguales = 1;
+
+    for (char **arg = argv + 2; *arg != NULL; arg++) {
+        if (!AreEqual(referencia, *arg)) {
+            iguales = 0;
+            break;
+        }
+    }
+
+    printf("%d\n", iguales);
     return 0;
 }
